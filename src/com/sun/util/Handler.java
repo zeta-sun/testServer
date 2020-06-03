@@ -60,7 +60,7 @@ public class Handler extends Thread{
     //根据资源地址找资源
     private void findResource(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String path = request.getRequestPath().replace("/","");
-        if (path != null && !"".equals(path)){
+        if (path != null && !"".equals(path) && !"".equals("favicon.ico")){
             Class clazz = Class.forName(className(path));
             Method method1 = clazz.getMethod("service", HttpServletRequest.class, HttpServletResponse.class);
             Object obj = clazz.newInstance();
